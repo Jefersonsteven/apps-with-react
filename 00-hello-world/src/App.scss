@@ -1,0 +1,26 @@
+#root {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  & .App {
+    & .Card {
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(22, 24, 28);
+      color: white;
+      border-radius: 16px;
+      & > h4 {
+        padding: 12px 16px;
+        font-size: 2rem;
+      }
+      & a {
+        padding: 16px;
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: #1D9Bf0;
+      }
+    }
+  }
+}
+

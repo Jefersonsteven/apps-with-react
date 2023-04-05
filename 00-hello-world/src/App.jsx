@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import './App.css'
-import Item from './components/button';
+import './App.scss'
+import User from './components/User/User';
 import Verified from './components/icons/Verified';
 
 function App() {
@@ -15,6 +15,17 @@ function App() {
     })
   },[]);
 
+  function isVerified(index) {
+    switch(index){
+      case 0:
+        return 'notVerified';
+      case 1:
+        return 'gold';
+      case 2:
+        return 'blue';
+    }
+  }
+
   return (
     <div className="App">
       <div className='Card'>
@@ -22,14 +33,18 @@ function App() {
         <div className='Users'>
           {users?.map(({ picture, name, login }, i) => {
             return (
-              <Item
+              <User
                 key={login.uuid}
                 src={picture.thumbnail}
                 name={`${name.first} ${name.last}`}
                 username={login.username}
-                verified={<Verified
-                  fill={i === 1 ? "#1da1f2" : "#ffc506"}
+                verifiedIcon={ (isVerified(i) === 'gold' || isVerified(i)  === 'blue') 
+                && 
+                <Verified
+                  fill={isVerified(i) === 'gold' ? "#ffc506" : "#1da1f2"}
                 />}
+                verified={isVerified(i)}
+                isFollowing={i % 2 === 0 ? true : false}
               />
             )
           })}
