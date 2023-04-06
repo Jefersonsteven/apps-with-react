@@ -1,6 +1,17 @@
+@mixin text {
+    max-width: 79.5px;
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
 .User {
     display: flex;
     padding: 12px 16px;
+    // max-width: 348px;
+    // min-width: 288px;
     width: 348px;
     & img {
         width: 48px;
@@ -27,6 +38,9 @@
                 display: flex;
                 align-items: center;
                 gap: 3px;
+                & h4 {
+                    white-space: nowrap;
+                }
             }
             & span {
                 color: #71767B;
@@ -54,4 +68,8 @@
             color: rgb(202, 40, 67);
         }
     }
+}
+
+.User:hover {
+    background-color: rgba(255, 255, 255, 0.03);
 }

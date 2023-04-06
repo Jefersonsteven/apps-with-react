@@ -29,7 +29,7 @@ function User({src, name, verifiedIcon, username, isFollowing, verified}) {
                     <span>{`@${username}`}</span>
                 </div>
                 <button
-                    onMouseEnter={() => {
+                    onMouseEnter={() => { 
                         if(following === 'Following') {
                             setFollowing('Unfollow');
                         }
